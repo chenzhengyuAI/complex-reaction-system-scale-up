@@ -3,11 +3,11 @@ This is a code for accelerating the scale-up of complex reaction systems by inte
 # 2. System Requirements
 2.1 Hardware requirements
 The hybrid model requires only a standard computer with enough RAM to support the in-memory operations.
-# 3. Software requirements
-## 3.1 OS Requirements
+## 2.1 Software requirements
+### 2.1.1 OS Requirements
 The hybrid model can be performed by *Windows*. The model has been tested on the following systems:
 + Windows 10 and 11
-## 3.2 Python Dependencies
+### 2.1.2 Python Dependencies
 The hybrid model mainly depends on the Python scientific stack.
 ```
 torch
@@ -22,6 +22,11 @@ pymoo
 The hybrid model has been tested on the following python environments:
 + Python 3.9
 + Pytorch 2.0.0+cu118
+# 3. Installation Guide
+Download the above model to your local computer, modify the file path in the corresponding code, and then run the code
++ Computational time for Bayesian hyperparameter optimization: 8 hours
++ Computational time for model train: 10 min
++ Computational time for model prediction: < 20 s
 # 4. Code and Dataset
 The entire model is divided into three parts, namely, lab-scale model, pilot-scale model and process optimization, which are placed in three folders respectively.
 ## 4.1 Lab scale model
