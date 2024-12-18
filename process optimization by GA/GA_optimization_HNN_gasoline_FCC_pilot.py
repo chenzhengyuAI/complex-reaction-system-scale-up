@@ -236,8 +236,8 @@ class MyOptimizationProblem(Problem):
                                                           device=self.device)
             combined_output = torch.cat((mass_fraction, mass_PIONA), dim=1)
 
-        f1 = -combined_output[:, 2].cpu().numpy()  # 第一个目标
-        f2 = -combined_output[:, 6].cpu().numpy()  # 第二个目标
+        f1 = -combined_output[:, 2].cpu().numpy()
+        f2 = -combined_output[:, 6].cpu().numpy()
 
         out["F"] = np.column_stack([f1, f2])
 
