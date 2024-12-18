@@ -66,5 +66,22 @@ This file is the output data of train dataset for pilot plant
 This file is the input data of train dataset for pilot plant
 + “targets_test_pilot”:
 This file is the output data of train dataset for pilot plant
+## 4.3 Process optimization model
+### 4.3.1 Code section
++ “GA_optimization_HNN_gasoline_FCC_pilot.py”:
+This file is the optimization algorithm by GA coupled with hybrid model.
+# 5. Other File Explanation
++ “model_checkpoint_net1.csv”:
+This file is the trained Process-based ResNet for lab-scale hybrid model.
++ “model_checkpoint_net2.csv”:
+This file is the trained Molecule-based ResNet for lab-scale hybrid model.
++ “model_checkpoint_agg_net.csv”:
+This file is the trained integrated ResNet for lab-scale hybrid model.
++ “model_checkpoint_net1_prop_60.csv”:
+This file is the trained Process-based ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
++ “model_checkpoint_net2_prop_60.csv”:
+This file is the trained Molecule-based ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
++ “model_checkpoint_agg_net_prop_60.csv”:
+This file is the trained integrated ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
 
 
