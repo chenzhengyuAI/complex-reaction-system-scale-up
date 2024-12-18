@@ -10,7 +10,6 @@ The hybrid model can be performed by *Windows*. The model has been tested on the
 ## 3.2 Python Dependencies
 The hybrid model mainly depends on the Python scientific stack.
 ```
-```
 torch
 optuna
 numpy
