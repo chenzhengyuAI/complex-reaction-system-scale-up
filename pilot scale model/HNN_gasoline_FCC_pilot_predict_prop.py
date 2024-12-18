@@ -182,7 +182,6 @@ unfrozen_count = unfreeze_last_layers(agg_net, unfrozen_layers, unfrozen_count)
 unfrozen_count = unfreeze_last_layers(net1, unfrozen_layers, unfrozen_count)
 unfrozen_count = unfreeze_last_layers(net2, unfrozen_layers, unfrozen_count)
 
-# 将模型移动到GPU
 net1 = net1.to(device)
 net2 = net2.to(device)
 agg_net = agg_net.to(device)
