@@ -22,13 +22,14 @@ pymoo
 The hybrid model has been tested on the following python environments:
 + Python 3.9
 + Pytorch 2.0.0+cu118
-# 4. Code and dataset
+# 4. Code and Dataset
 The entire model is divided into three parts, namely, lab-scale model, pilot-scale model and process optimization, which are placed in three folders respectively.
 ## 4.1 lab scale model
-Code section
-### 4.1.1 “Bayes_for_HNN_gasoline_FCC.py” 
+### 4.1.1 Code section
++ “Bayes_for_HNN_gasoline_FCC.py”: 
 This file is the code for using Bayesian algorithm to optimize the hyperparameters of neural network in the lab-scale hybrid model. The input (features) are process conditions and naphtha molecular composition of lab-scale reactor, and the label is the product molecular composition of lab-scale reactor.
-### 4.1.2 “HNN_gasoline_FCC_lab_train.py”
++ “HNN_gasoline_FCC_lab_train.py”:
 This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input (features) are process conditions and naphtha molecular composition of lab-scale reactor, and the label is the product molecular composition of lab-scale reactor.
-### 4.1.3 “HNN_gasoline_FCC_lab_pred.py”
++ “HNN_gasoline_FCC_lab_pred.py”:
 This file is a testing code for naphtha catalytic cracking lab-scale model. Through loading the trained neural network, the code can predict the product molecular composition by inputting process conditions and naphtha molecular composition of lab-scale reactor.
+
