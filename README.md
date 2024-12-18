@@ -32,11 +32,11 @@ The entire model is divided into three parts, namely, lab-scale model, pilot-sca
 ## 4.1 Lab scale model
 ### 4.1.1 Code section
 + “Bayes_for_HNN_gasoline_FCC.py”: 
-This file is the code for using Bayesian algorithm to optimize the hyperparameters of neural network in the lab-scale hybrid model. The input (features) are process conditions and naphtha molecular composition of lab-scale reactor, and the label is the product molecular composition of lab-scale reactor.
+This file is the code for using Bayesian algorithm to optimize the hyperparameters of neural network in the lab-scale hybrid model. The input are process conditions and naphtha molecular composition of lab-scale reactor (FeedMoleculeContent_lab.csv), and the label is the product molecular composition of lab-scale reactor (ProductMoleculeContent_lab.csv).
 + “HNN_gasoline_FCC_lab_train.py”:
-This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input (features) are process conditions and naphtha molecular composition of lab-scale reactor, and the label is the product molecular composition of lab-scale reactor.
+This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input are process conditions and naphtha molecular composition of lab-scale reactor (FeedMoleculeContent_lab.csv), and the label is the product molecular composition ((ProductMoleculeContent_lab.csv)) of lab-scale reactor (ProductMoleculeContent_lab.csv).
 + “HNN_gasoline_FCC_lab_pred.py”:
-This file is a testing code for naphtha catalytic cracking lab-scale model. Through loading the trained neural network, the code can predict the product molecular composition by inputting process conditions and naphtha molecular composition of lab-scale reactor.
+This file is a testing code for naphtha catalytic cracking lab-scale model. Through loading the trained neural network, the code can predict the product molecular composition (targets_train_lab.csv/targets_test_lab.csv) by inputting process conditions and naphtha molecular composition of lab-scale reactor (input_train_lab.csv/input_test_lab.csv).
 ### 4.1.2 Dataset section
 + “FeedMoleculeContent_lab.csv”:
 This file is the input data of the naphtha catalytic cracking lab-scale model, including process conditions and naphtha molecular composition. The first four columns are process conditions, and the last 129 columns are naphtha composition.
@@ -53,11 +53,11 @@ This file is the output data of train dataset for lab scale reactor
 ## 4.2 Pilot scale model
 ### 4.2.1 Code section
 + “Transfer_learning_Bayes_opt_para_for_HNN_prop.py”:
-This file is the code for optimizing hyperparameters in the transfer learning using the Bayesian algorithm. The input (features) are process conditions and naphtha molecular composition of pilot-scale reactor, and the label is the product bulk properties of pilot-scale reactor.
+This file is the code for optimizing hyperparameters in the transfer learning using the Bayesian algorithm. The input are process conditions and naphtha molecular composition of pilot-scale reactor (FeedMoleculeContent_pilot.csv), and the label is the product bulk properties of pilot-scale reactor (ProductBulkProperty_pilot.csv).
 + “HNN_gasoline_FCC_pilot_train.py”:
-This file is a training code for naphtha catalytic cracking pilot-scale model by tuned hyperparameters. The input (features) are process conditions and naphtha molecular composition of pilot-scale reactor, and the label is the product bulk properties of pilot-scale reactor.
+This file is a training code for naphtha catalytic cracking pilot-scale model by tuned hyperparameters. The input (features) are process conditions and naphtha molecular composition of pilot-scale reactor (FeedMoleculeContent_pilot.csv), and the label is the product bulk properties of pilot-scale reactor (ProductBulkProperty_pilot.csv).
 + “HNN_gasoline_FCC_pilot_pred.py”:
-This file is a testing code for naphtha catalytic cracking pilot-scale model. Through loading the trained pilot-scale hybrid model, the code can predict the product bulk properties by inputting process conditions and naphtha molecular composition of pilot-scale reactor.
+This file is a testing code for naphtha catalytic cracking pilot-scale model. Through loading the trained pilot-scale hybrid model, the code can predict the product bulk properties (targets_train_pilot.csv/targets_test_pilot.csv) by inputting process conditions and naphtha molecular composition of pilot-scale reactor (input_train_pilot.csv/input_train_pilot.csv).
 ### 4.2.2 Dataset section
 + “FeedMoleculeContent_pilot.csv”:
 This file is the input data of the naphtha catalytic cracking pilot-scale model, including process conditions and naphtha molecular composition. The first four columns are process conditions, and the last 129 columns are naphtha composition.
