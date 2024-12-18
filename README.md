@@ -34,7 +34,7 @@ The entire model is divided into three parts, namely, lab-scale model, pilot-sca
 + “Bayes_for_HNN_gasoline_FCC.py”: 
 This file is the code for using Bayesian algorithm to optimize the hyperparameters of neural network in the lab-scale hybrid model. The input are process conditions and naphtha molecular composition of lab-scale reactor (FeedMoleculeContent_lab.csv), and the label is the product molecular composition of lab-scale reactor (ProductMoleculeContent_lab.csv).
 + “HNN_gasoline_FCC_lab_train.py”:
-This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input are process conditions and naphtha molecular composition of lab-scale reactor (FeedMoleculeContent_lab.csv), and the label is the product molecular composition ((ProductMoleculeContent_lab.csv)) of lab-scale reactor (ProductMoleculeContent_lab.csv).
+This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input are process conditions and naphtha molecular composition of lab-scale reactor (FeedMoleculeContent_lab.csv), and the label is the product molecular composition (ProductMoleculeContent_lab.csv) of lab-scale reactor (ProductMoleculeContent_lab.csv).
 + “HNN_gasoline_FCC_lab_pred.py”:
 This file is a testing code for naphtha catalytic cracking lab-scale model. Through loading the trained neural network, the code can predict the product molecular composition (targets_train_lab.csv/targets_test_lab.csv) by inputting process conditions and naphtha molecular composition of lab-scale reactor (input_train_lab.csv/input_test_lab.csv).
 ### 4.1.2 Dataset section
