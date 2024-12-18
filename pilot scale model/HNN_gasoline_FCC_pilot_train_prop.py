@@ -261,7 +261,7 @@ for epoch in range(num_epochs):
 
             test_predictions = torch.cat((test_predictions, combined_output), dim=0)
             test_targets = torch.cat((test_targets, targets_batch), dim=0)
-            test_loss += criterion(combined_output, targets_batch).item()  # 累加损失值
+            test_loss += criterion(combined_output, targets_batch).item()
             test_mse += ((combined_output - targets_batch) ** 2).sum().item()
             test_mae += torch.abs(combined_output - targets_batch).sum().item()
 
