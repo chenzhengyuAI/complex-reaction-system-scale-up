@@ -21,7 +21,7 @@ pymoo
 ```
 The hybrid model has been tested on the following python environments:
 + Python 3.9
-+ Pytorch 2.0.0+cu118
++ torch 2.0.0+cu118
 # 3. Installation Guide
 Download the above model to your local computer, modify the file path in the corresponding code, and then run the code
 + Computational time for Bayesian hyperparameter optimization: 8 hours
