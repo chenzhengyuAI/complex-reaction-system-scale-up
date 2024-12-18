@@ -32,4 +32,17 @@ This file is the code for using Bayesian algorithm to optimize the hyperparamete
 This file is a training code for naphtha catalytic cracking lab-scale model by tuned hyperparameters. The input (features) are process conditions and naphtha molecular composition of lab-scale reactor, and the label is the product molecular composition of lab-scale reactor.
 + “HNN_gasoline_FCC_lab_pred.py”:
 This file is a testing code for naphtha catalytic cracking lab-scale model. Through loading the trained neural network, the code can predict the product molecular composition by inputting process conditions and naphtha molecular composition of lab-scale reactor.
+### 4.1.2 Dataset section
++ “FeedMoleculeContent_lab.csv”:
+This file is the input data of the naphtha catalytic cracking lab-scale model, including process conditions and naphtha molecular composition. The first four columns are process conditions, and the last 129 columns are naphtha composition.
++ “ProductMoleculeContent_lab.csv”:
+This file is the output data of the naphtha catalytic cracking lab-scale model, including product molecular composition of 129 molecules.
++ “input_train_lab”:
+this file is the input data of train dataset
++ “targets_train_lab”:
+this file is the output data of train dataset
++ “input_test_lab”:
+this file is the input data of train dataset
++ “targets_test_lab”:
+this file is the output data of train dataset
 
