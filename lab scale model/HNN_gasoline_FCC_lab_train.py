@@ -161,7 +161,7 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
 optimizer = optim.Adam(list(net1.parameters()) + list(net2.parameters()) + list(agg_net.parameters()),
                            lr=learning_rate, weight_decay=weight_decay)
-scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.9)  # 学习率衰减
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.9)
 criterion = nn.MSELoss()
 
 train_loss_list = []
