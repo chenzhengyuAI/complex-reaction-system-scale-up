@@ -134,7 +134,7 @@ def objective(trial):
             loss = criterion(final_output, targets_batch)
             loss.backward()
             optimizer.step()
-        scheduler.step()  # 更新学习率
+        scheduler.step() 
 
     net1.eval()
     net2.eval()
@@ -168,8 +168,8 @@ x = pd.read_csv(file_path_x, header=None).head(10000)
 y = pd.read_csv(file_path_y, header=None).head(10000)
 
 
-input1 = x.iloc[:, :4].values  # 前四列
-input2 = x.iloc[:, 4:].values  # 剩余的列
+input1 = x.iloc[:, :4].values  
+input2 = x.iloc[:, 4:].values  
 targets = y.values
 
 
