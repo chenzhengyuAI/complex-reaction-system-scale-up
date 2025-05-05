@@ -19,11 +19,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def preprocess_data(x, y, scaler=None):
     if scaler is None:
-        # 如果没有传入 scaler，则创建并计算新的 scaler
         scaler = StandardScaler()
         x_scaled = scaler.fit_transform(x)
     else:
-        # 如果有传入 scaler，则使用它来标准化数据
         x_scaled = scaler.transform(x)
 
     x_tensor = torch.tensor(x_scaled, dtype=torch.float32)
@@ -92,7 +90,7 @@ class AggregateNet(nn.Module):
         for _ in range(num_residual_blocks):
             self.layers.append(ResidualBlock(hidden_dim, hidden_dim, dropout_p))
         self.layers.append(nn.Linear(hidden_dim, output_dim))
-        self.relu = nn.ReLU()  # 非负激活函数
+        self.relu = nn.ReLU()
 
     def forward(self, x1, x2):
         x1 = x1.clone().detach()
@@ -165,9 +163,8 @@ def create_models():
 
     optimizer = optim.Adam(filter(lambda p: p.requires_grad, list(net1.parameters()) + list(net2.parameters()) +
                                   list(agg_net.parameters())))
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.9)  # 学习率衰减
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.9)
 
-    # 加载每个模型的状态字典
     for i, model in enumerate([net1, net2, agg_net]):
         model, optimizer = load_model(model, optimizer, model_paths[i])
 
