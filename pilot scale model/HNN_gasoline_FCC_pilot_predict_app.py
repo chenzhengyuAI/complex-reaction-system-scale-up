@@ -116,9 +116,9 @@ def create_models():
     agg_net = AggregateNet(hidden_size_net1 + hidden_size_net2, 129, block_num_agg, hidden_size_agg,
                            dropout_p)
 
-    checkpoint_net1 = torch.load('C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_net1.pth')
-    checkpoint_net2 = torch.load('C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_net2.pth')
-    checkpoint_agg_net = torch.load('C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_agg_net.pth')
+    checkpoint_net1 = torch.load('./model_checkpoint_net1.pth')
+    checkpoint_net2 = torch.load('./model_checkpoint_net2.pth')
+    checkpoint_agg_net = torch.load('./model_checkpoint_agg_net.pth')
     net1.load_state_dict(checkpoint_net1['model_state_dict'])
     net2.load_state_dict(checkpoint_net2['model_state_dict'])
     agg_net.load_state_dict(checkpoint_agg_net['model_state_dict'])
@@ -156,9 +156,9 @@ def create_models():
         return model, optimizer
 
     model_paths = [
-        'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_pilot_net1_prop_60.pth',
-        'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_pilot_net2_prop_60.pth',
-        'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_pilot_agg_net_prop_60.pth'
+        './model_checkpoint_pilot_net1_prop_60.pth',
+        './model_checkpoint_pilot_net2_prop_60.pth',
+        './model_checkpoint_pilot_agg_net_prop_60.pth'
     ]
 
     optimizer = optim.Adam(filter(lambda p: p.requires_grad, list(net1.parameters()) + list(net2.parameters()) +
@@ -193,7 +193,7 @@ if st.button('Run model'):
 
     with st.spinner('The model is running...'):
         try:
-            property_data = pd.read_csv('C:/chenzhengyu/data driven model/data/HNN/mol_property.csv', header=None)
+            property_data = pd.read_csv('./mol_property.csv', header=None)
             BP = torch.tensor(property_data.iloc[0, :].values, dtype=torch.float32)
             PIONA = torch.tensor(property_data.iloc[1, :].values, dtype=torch.long)
             mw = torch.tensor(property_data.iloc[2, :].values, dtype=torch.float32)
@@ -201,13 +201,13 @@ if st.button('Run model'):
             x = pd.read_csv(input_file, header=None)
             y = pd.read_csv(target_file, header=None)
 
-            input1 = x.iloc[:, :4].values  # 前四列
-            input2 = x.iloc[:, 4:].values  # 剩余的列
+            input1 = x.iloc[:, :4].values
+            input2 = x.iloc[:, 4:].values
             targets = y.values
 
-            scaler = joblib.load('C:/chenzhengyu/data driven model/code/HNN/scaler_input1_pilot_60.pkl')
+            scaler = joblib.load('./scaler_input1_pilot_60.pkl')
             input1_tensor, targets_tensor, _ = preprocess_data(input1, targets, scaler)
-            scaler = joblib.load('C:/chenzhengyu/data driven model/code/HNN/scaler_input2_pilot_60.pkl')
+            scaler = joblib.load('./scaler_input2_pilot_60.pkl')
             input2_tensor, targets_tensor, _ = preprocess_data(input2, targets, scaler)
 
             input1_tensor, input2_tensor, targets_tensor = input1_tensor.to(device), input2_tensor.to(
@@ -227,7 +227,7 @@ if st.button('Run model'):
                 mass_fraction, mass_PIONA = compute_fractions(predict_data, BP, PIONA, mw, device=device)
                 combined_output = torch.cat((mass_fraction, mass_PIONA), dim=1)
 
-                predict_data = combined_output.cpu().numpy()  # 将预测结果从GPU移到CPU并转换为NumPy数组
+                predict_data = combined_output.cpu().numpy()
 
             experiment_data = targets_tensor.cpu().numpy()
             r2 = r2_score(experiment_data, predict_data)
@@ -263,7 +263,7 @@ if st.button('Save the result'):
     else:
         try:
             df = pd.DataFrame(st.session_state.predict_data)
-            df.to_csv('C:/chenzhengyu/data driven model/data/ProductMoleculeContent_lab_pred.csv',
+            df.to_csv('./ProductMoleculeContent_lab_pred.csv',
                       index=False,
                       header=False)
             st.success('Model saved successfully！')
