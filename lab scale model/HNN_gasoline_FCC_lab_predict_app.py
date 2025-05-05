@@ -112,9 +112,9 @@ def create_models():
     net2 = net2.to(device)
     agg_net = agg_net.to(device)
 
-    net1 = load_model(net1, 'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_net1.pth')
-    net2 = load_model(net2, 'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_net2.pth')
-    agg_net = load_model(agg_net, 'C:/chenzhengyu/data driven model/code/HNN/model_checkpoint_agg_net.pth')
+    net1 = load_model(net1, './model_checkpoint_net1.pth')
+    net2 = load_model(net2, './model_checkpoint_net2.pth')
+    agg_net = load_model(agg_net, './model_checkpoint_agg_net.pth')
 
     return net1, net2, agg_net
 
@@ -200,7 +200,7 @@ if st.button('Save the result'):
     else:
         try:
             df = pd.DataFrame(st.session_state.predict_data)
-            df.to_csv('C:/chenzhengyu/data driven model/data/ProductMoleculeContent_lab_pred.csv',
+            df.to_csv('./ProductMoleculeContent_lab_pred.csv',
                       index=False,
                       header=False)
             st.success('Model saved successfully！')
