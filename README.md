@@ -88,5 +88,19 @@ This file is the trained Process-based ResNet for pilot-scale hybrid model, when
 This file is the trained Molecule-based ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
 + “model_checkpoint_agg_net_prop_60.csv”:
 This file is the trained integrated ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
-
-
+# 6. Model Result Validation
+## 6.1 Laboratory-scale model validation
+If one intend to validate the lab-scale model, please run the script “HNN_gasoline_FCC_lab_pred.py”.
+Lines 93–94: Inputting “input_train_lab.csv” and “targets_train_lab.csv” will generate results for the laboratory-scale model training set.
+Lines 93–94: Inputting “input_test_lab.csv” and “targets_test_lab.csv” will generate results for the laboratory-scale model test set.
+## 6.2 Pilot-scale model validation
+If one intend to validate the pilot-scale model, please run the script “HNN_gasoline_FCC_pilot_pred_prop.py”.
+Lines 104–105: Inputting “input_train_pilot.csv” and “targets_train_pilot.csv” will generate results for the pilot-scale model training set.
+Lines 104–105: Inputting “input_validation_pilot.csv” and “targets_validation_pilot.csv” will generate results for the pilot-scale validation set.
+Lines 104–105: Inputting “input_test_pilot.csv” and “targets_test_pilot.csv” will generate results for the pilot-scale testing set.
+## 6.3 Process ptimization validation
+If one intend to validate the process optimization results, please run the script “GA_optimization_HNN_gasoline_FCC_pilot.py”.
+# 7. Model Interface Usage
+We programmed a web version of the interface based on Streamlit. The code to run the interface is uploaded to Git Hub. “APP_lab_model.py” in the “lab scale model” folder is an interface for the laboratory-scale model, while “APP_pilot_model.py” in the “pilot scale model” folder is an interface for the pilot-scale model. 
+For example, if one wants to run the “APP_lab_model.py”, one can execute the command “streamlit run APP_lab_model.py” in the Python environment to open the corresponding web page. The left side of the interface is used for data input, such as “input_train_lab.csv” and targets_train_lab.csv”. The right side of the interface shows the model training results.
+Similarly, if one wants to run the “APP_pilot_model.py”, one can execute the command “streamlit run APP_pilot_model.py” in the Python environment to open the corresponding web page. “input_train_lab.csv” and “targets_train_lab.csv” should be input on the left side of the interface, and the calculated results will be presented on the right side of the interface.
