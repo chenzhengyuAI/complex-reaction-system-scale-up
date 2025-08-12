@@ -23,9 +23,16 @@ matplotlib
 joblib
 pymoo
 ```
-The hybrid model has been tested on the following python environments:
+The hybrid model has been tested on the following python environments (Requirements.txt):
 + Python 3.9
 + torch 2.0.0+cu118
++ numpy==1.26.4
++ optuna==3.6.1
++ pymoo==0.6.1.3
++ pandas==2.2.1
++ scikit-learn==1.6.1
++ matplotlib==3.8.4
++ joblib==1.4.0
 # 3. Installation Guide
 Download the above model to your local computer, modify the file path in the corresponding code, and then run the code
 + Computational time for Bayesian hyperparameter optimization: 8 hours
