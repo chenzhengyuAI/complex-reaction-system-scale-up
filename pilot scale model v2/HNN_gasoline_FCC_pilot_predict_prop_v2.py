@@ -94,13 +94,13 @@ class AggregateNet(nn.Module):
         return out
 
 
-property_data = pd.read_csv('F:/2024/32 Scale up for FCC/pilot scale model v2/mol_property.csv', header=None)
+property_data = pd.read_csv('./mol_property.csv', header=None)
 BP = torch.tensor(property_data.iloc[0, :].values, dtype=torch.float32)
 PIONA = torch.tensor(property_data.iloc[1, :].values, dtype=torch.long)
 mw = torch.tensor(property_data.iloc[2, :].values, dtype=torch.float32)
 
-file_path_x = "F:/2024/32 Scale up for FCC/pilot scale model v2/input_train_pilot.csv"
-file_path_y = "F:/2024/32 Scale up for FCC/pilot scale model v2/targets_train_pilot.csv"
+file_path_x = "./input_train_pilot.csv"
+file_path_y = "./targets_train_pilot.csv"
 
 x = pd.read_csv(file_path_x, header=None)
 y = pd.read_csv(file_path_y, header=None)
@@ -120,9 +120,9 @@ input1 = x.iloc[:, :4].values
 input2 = x.iloc[:, 4:].values
 targets = y.values
 
-scaler = joblib.load('F:/2024/32 Scale up for FCC/pilot scale model v2/scaler_input1_pilot_60.pkl')
+scaler = joblib.load('./scaler_input1_pilot_60.pkl')
 input1_tensor, targets_tensor, _ = preprocess_data(input1, targets, scaler)
-scaler = joblib.load('F:/2024/32 Scale up for FCC/pilot scale model v2/scaler_input2_pilot_60.pkl')
+scaler = joblib.load('./scaler_input2_pilot_60.pkl')
 input2_tensor, targets_tensor, _ = preprocess_data(input2, targets, scaler)
 
 input1_tensor, input2_tensor, targets_tensor = input1_tensor.to(device), input2_tensor.to(device), targets_tensor.to(
@@ -142,9 +142,9 @@ net2 = Net2(input2_tensor.shape[1], block_num_net2, hidden_size_net2, dropout_p)
 agg_net = AggregateNet(hidden_size_net1 + hidden_size_net2, 129, block_num_agg, hidden_size_agg,
                        dropout_p)
 
-checkpoint_net1 = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_net1.pth')
-checkpoint_net2 = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_net2.pth')
-checkpoint_agg_net = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_agg_net.pth')
+checkpoint_net1 = torch.load('./model_checkpoint_net1.pth')
+checkpoint_net2 = torch.load('./model_checkpoint_net2.pth')
+checkpoint_agg_net = torch.load('./model_checkpoint_agg_net.pth')
 net1.load_state_dict(checkpoint_net1['model_state_dict'])
 net2.load_state_dict(checkpoint_net2['model_state_dict'])
 agg_net.load_state_dict(checkpoint_agg_net['model_state_dict'])
@@ -193,9 +193,9 @@ def load_model(model, optimizer, path):
 
 
 model_paths = [
-    'F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_pilot_net1_prop_60_v2.pth',
-    'F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_pilot_net2_prop_60_v2.pth',
-    'F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_pilot_agg_net_prop_60_v2.pth'
+    './model_checkpoint_pilot_net1_prop_60_v2.pth',
+    './model_checkpoint_pilot_net2_prop_60_v2.pth',
+    './model_checkpoint_pilot_agg_net_prop_60_v2.pth'
 ]
 
 optimizer = optim.Adam(filter(lambda p: p.requires_grad, list(net1.parameters()) + list(net2.parameters()) +
