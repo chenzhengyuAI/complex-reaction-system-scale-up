@@ -99,3 +99,5 @@ This file is the trained Process-based ResNet for pilot-scale hybrid model, when
 This file is the trained Molecule-based ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
 + “model_checkpoint_agg_net_prop_60.csv”:
 This file is the trained integrated ResNet for pilot-scale hybrid model, when the pilot-scale dataset is 60.
+# 6. Latest Update
+A training bug in the original pilot-scale model has been fixed. The updated pilot-scale model, including the corrected training code, is available in the `pilot scale model v2` folder.
