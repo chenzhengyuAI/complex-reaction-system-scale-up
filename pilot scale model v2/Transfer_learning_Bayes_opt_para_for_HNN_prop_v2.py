@@ -108,9 +108,9 @@ def optimize(trial):
     agg_net = AggregateNet(hidden_size_net1 + hidden_size_net2, 129, block_num_agg, hidden_size_agg,
                            dropout_p)
 
-    checkpoint_net1 = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_net1.pth')
-    checkpoint_net2 = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_net2.pth')
-    checkpoint_agg_net = torch.load('F:/2024/32 Scale up for FCC/pilot scale model v2/model_checkpoint_agg_net.pth')
+    checkpoint_net1 = torch.load('./model_checkpoint_net1.pth')
+    checkpoint_net2 = torch.load('./model_checkpoint_net2.pth')
+    checkpoint_agg_net = torch.load('./model_checkpoint_agg_net.pth')
     net1.load_state_dict(checkpoint_net1['model_state_dict'])
     net2.load_state_dict(checkpoint_net2['model_state_dict'])
     agg_net.load_state_dict(checkpoint_agg_net['model_state_dict'])
@@ -203,8 +203,8 @@ def optimize(trial):
     return r2
 
 
-file_path_x = "F:/2024/32 Scale up for FCC/pilot scale model v2/FeedMoleculeContent_pilot_prop.csv"
-file_path_y = "F:/2024/32 Scale up for FCC/pilot scale model v2/ProductBulkProperty_pilot_prop.csv"
+file_path_x = "./FeedMoleculeContent_pilot_prop.csv"
+file_path_y = "./ProductBulkProperty_pilot_prop.csv"
 
 x = pd.read_csv(file_path_x, header=None)
 y = pd.read_csv(file_path_y, header=None)
@@ -247,7 +247,7 @@ def load_model(model, path):
     model.load_state_dict(checkpoint['model_state_dict'])
 
 
-property_data = pd.read_csv('F:/2024/32 Scale up for FCC/pilot scale model v2/mol_property.csv', header=None)
+property_data = pd.read_csv('./mol_property.csv', header=None)
 BP = torch.tensor(property_data.iloc[0, :].values, dtype=torch.float32)
 PIONA = torch.tensor(property_data.iloc[1, :].values, dtype=torch.long)
 mw = torch.tensor(property_data.iloc[2, :].values, dtype=torch.float32)
